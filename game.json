@@ -2,50 +2,337 @@
     "verbs": [
       { "v": "EXITS",   "map": "EXITS" },
       { "v": "QUIT",    "map": "QUIT"  },
-      { "v": "NORTH",   "map": "NORTH" },
-      { "v": "N",       "map": "NORTH" },
-      { "v": "SOUTH",   "map": "SOUTH" },
-      { "v": "S",       "map": "SOUTH" },
-      { "v": "EAST",    "map": "EAST"  },
-      { "v": "E",       "map": "EAST"  },
-      { "v": "WEST",    "map": "WEST"  },
-      { "v": "W",       "map": "WEST"  }
+      { "v": "BACK",    "map": "BACK"  },
+      { "v": "FORWARD", "map": "FORWARD"},
+      { "v": "RIGHT",   "map": "RIGHT" },
+      { "v": "LEFT",    "map": "LEFT"  },
+      { "v": "F",     "map": "FORWARD"   },
+      { "v": "R",     "map": "RIGHT"   },
+      { "v": "L",     "map": "LEFT"   },
+      { "v": "B",     "map": "BACK"   },
+      { "v": "NEW",     "map": "NEW"   }
     ],
 
     "rooms": {
       "START": {
-        "name": "Starting place",
-        "desc": "This is the place to start!",
+        "name": "at the gates of a grand city",
+        "desc": "The entrance is guarded by two giant soldiers.\nThere is a large, seemingly endless, forest behind you.",
         "exits": [
           {
-            "verb": "NORTH",
-            "target": "LOC2",
+            "verb": "FORWARD",
+            "target": "CITY",
             "condition": ""
           },
           {
-            "verb": "SOUTH",
-            "target": "LOC2",
+            "verb": "BACK",
+            "target": "FOREST",
             "condition": ""
           },
           {
-            "verb": "WEST",
-            "target": "LOC2",
+            "verb": "RIGHT",
+            "target": "WALL",
             "condition": ""
           },
           {
-            "verb": "EAST",
-            "target": "LOC2",
+            "verb": "LEFT",
+            "target": "WALL",
             "condition": ""
           }
         ],
         "inventory": []
       },
-      "LOC2": {
-        "name": "Location 2",
-        "desc": "Here is the second location.",
+      "WALL": {
+        "name": "at the wall surrounding the city",
+        "desc": "There are many wanderers and shading looking figures patroling around the area,\nit may be better to return back to the gate since you have no weapons.",
         "exits": [
+          {
+            "verb": "BACK",
+            "target": "START",
+            "condition": ""
+          }
         ],
         "inventory": []
-      }
+      
+      },
+      "CITY": {
+      "name": "in the grand city of Mibaku! Welcome!",
+        "desc": "You enter the city walls into a crowded courtyard, surrounded by villagers and travelers. ",
+        "exits": [
+          {
+            "verb": "FORWARD",
+            "target": "MARKET",
+            "condition": ""
+          },
+          {
+            "verb": "LEFT",
+            "target": "PUB",
+            "condition": ""
+          },
+          {
+            "verb": "BACK",
+            "target": "START",
+            "condition": ""
+          },
+          {
+            "verb": "RIGHT",
+            "target": "WSHOP",
+            "condition": ""
+          }
+        ],
+        "inventory": []
+      },
+      "PUB": {
+        "name": "at local pub, down the street from the city entrance.",
+          "desc": "You fight your way into the bar, and manage to make your way up to the bartender. ",
+          "exits": [
+            {
+              "verb": "FORWARD",
+              "target": "EAT",
+              "condition": ""
+            },
+            {
+              "verb": "RIGHT",
+              "target": "MARKET",
+              "condition": ""
+            },
+            {
+              "verb": "BACK",
+              "target": "CITY",
+              "condition": ""
+            },
+            {
+              "verb": "LEFT",
+              "target": "SHADY",
+              "condition": ""
+            }
+          ],
+          "inventory": []
+        },
+          "SHADY": {
+            "name": "in the pub having a drink. A shady, cloaked, figure approaches you.",
+            "desc": "In your vulnerable state, the cloaked stranger stabs you and steals your belongings",
+            "exits": [
+              {
+                "verb": "FORWARD",
+                "target": "DEAD",
+                "condition": ""
+              }
+            ],
+            "inventory": []
+          },
+            "SHADY2": {
+              "name": "in the shop, a man approaches you.",
+              "desc": "He asks if you's be interested in seeing some items he has for sale outsidethe shop.",
+              "exits": [
+                {
+                  "verb": "FORWARD",
+                  "target": "SHADY3",
+                  "condition": ""
+                },
+                {
+                  "verb": "BACK",
+                  "target": "WSHOP",
+                  "condition": ""
+                }
+              ],
+              "inventory": []
+          
+        },
+        "SHADY3": {
+          "name": "in an alley way, the man displays various weapons he says are for sale.",
+          "desc": "Noticing you have no weapon, he draws his sword out and attacks you, in attempt to stal your belongings.",
+          "exits": [
+            {
+              "verb": "FORWARD",
+              "target": "DEAD",
+              "condition": ""
+            }
+          ],
+          "inventory": []
+        },
+        "MARKET": {
+          "name": "entering a giant marketplace, shops as far as the eye can see!",
+            "desc": "You wander the many rows of shops, taking in the unlimited relics and goods for sale. To bad you have no money...",
+            "exits": [
+              {
+                "verb": "FORWARD",
+                "target": "FOUNTAIN",
+                "condition": ""
+              },
+              {
+                "verb": "RIGHT",
+                "target": "WSHOP",
+                "condition": ""
+              },
+              {
+                "verb": "LEFT",
+                "target": "PUB",
+                "condition": ""
+              },
+              {
+                "verb": "BACK",
+                "target": "CITY",
+                "condition": ""
+              }
+            ],
+            "inventory": []
+          },
+          "FOREST": {
+              "name": "a dark forest surrounding the city walls.",
+              "desc": "The forest seems to be unpassable, but in the distance you hear a distant voice, it beckons to you.",
+              "exits": [
+                {
+                  "verb": "FORWARD",
+                  "target": "ATTACKED",
+                  "condition": ""
+                },
+                {
+                  "verb": "BACK",
+                  "target": "START",
+                  "condition": ""
+                }
+              ],
+              "inventory": []
+            },
+            "ATTACKED": {
+              "name": "much deeper in the forest. The visibility is next to none.",
+              "desc": "You begin to hear footsteps somewhere near you. You turn toward the noise, but just as an arrow immediately pierces through your throat.\nYour body crumples to the ground.",
+              "exits": [
+                {
+                  "verb": "FORWARD",
+                  "target": "DEAD",
+                  "condition": ""
+                }
+              ],
+              "inventory": []
+            },
+            "WSHOP": {
+              "name": "in a weapong shop, slightly off the beaten path of the city mainways. There are many interesting characters shopping as well.",
+                "desc": "The store owner suggests he show you some of his best items.",
+                "exits": [
+                  {
+                    "verb": "FORWARD",
+                    "target": "SALE",
+                    "condition": ""
+                  },
+                  {
+                    "verb": "RIGHT",
+                    "target": "SHADY2",
+                    "condition": ""
+                  },
+                  {
+                    "verb": "LEFT",
+                    "target": "MARKET",
+                    "condition": ""
+                  },
+                  {
+                    "verb": "BACK",
+                    "target": "CITY",
+                    "condition": ""
+                  }
+                ],
+                "inventory": []
+              },
+              "SALE": {
+                "name": "in the back room of the weapons shop, looking over the wares of the store owner.",
+                  "desc": "He discovers you have no money, and in an effort to be nice, offers you a free dagger because he believes you are a kind soul.",
+                  "exits": [
+                    {
+                      "verb": "FORWARD",
+                      "target": "WIN",
+                      "condition": ""
+                    },
+                    {
+                      "verb": "BACK",
+                      "target": "WSHOP",
+                      "condition": ""
+                    }
+                  ],
+                  "inventory": []
+                },
+              "EAT": {
+                "name": "at a table in the bar. The bartender brings you a plate of the daily food special",
+                  "desc": "The foods looks like nothing you have seen before.\nIt appears similar to a familiar animal, yet it seems to have about a dozen eyeballs.\nYou dig in! ",
+                  "exits": [
+                    {
+                      "verb": "FORWARD",
+                      "target": "BROOM",
+                      "condition": ""
+                    },
+                    {
+                      "verb": "BACK",
+                      "target": "PUB",
+                      "condition": ""
+                    }
+                  ],
+                  "inventory": []
+                },
+                "BROOM": {
+                  "name": "in the bathroom. Your stomach is in turmoil, and you begin to vommit uncontrollably.",
+                  "desc": "You vanquish your insides and flop on the floor, the animal you ate appears to be sending you into an allergic reaction.",
+                  "exits": [
+                    {
+                      "verb": "FORWARD",
+                      "target": "DEAD",
+                      "condition": ""
+                    }
+                  ],
+                  "inventory": []
+                },
+                "FOUNTAIN": {
+                  "name": "in the courtyard of a giant fountain. There are people everywhere around it.",
+                    "desc": "You notice a woman in the near distance, beckoning you over to her location.",
+                    "exits": [
+                      {
+                        "verb": "FORWARD",
+                        "target": "GIRL",
+                        "condition": ""
+                      },
+                      {
+                        "verb": "BACK",
+                        "target": "MARKET",
+                        "condition": ""
+                      }
+                    ],
+                    "inventory": []
+                  },
+                    "GIRL": {
+                      "name": "in front of a beautiful woman. Her attractiveness infatuates you.",
+                        "desc": "You lock eyes with her, and she begins to lean in for a kiss.\nThe two of you kiss, and you are consumed in a moment of euphoria, yet when you pull away, you soon feel a shortness of breath.\nYou drop to the floor, poisoned by an elixer on her lips. She searches through your belongings as you lay motionless.",
+                        "exits": [
+                          {
+                            "verb": "FORWARD",
+                            "target": "DEAD",
+                            "condition": ""
+                          }
+                        ],
+                        "inventory": []
+                  },
+                    "DEAD": {
+                      "name": "DEAD.\nA gentle warm feeling takes over your body, and the darkness consumes your mind as you drift off into oblivion...",
+                      "desc": "",
+                      "exits": [
+                        {
+                          "verb": "QUIT",
+                          "target": "",
+                          "condition": ""
+                        }
+                      ],
+                      "inventory": []
+                    },
+                    "WIN": {
+                      "name": "finally not defenseless in the city of Mibaku!\nNow you can adventure out and attempt to defend yourself against all types of dangers in the world!",
+                      "desc": "YOU WIN",
+                      "exits": [
+                        {
+                          "verb": "QUIT",
+                          "target": "",
+                          "condition": ""
+                        }
+                      ],
+                      "inventory": []
+                    
+                  }
     }
-  }
+}    
+  

@@ -7,10 +7,21 @@ assert sys.version_info >= version, "This script requires at least Python {0}.{1
 
 
 # Game loop functions
+def banner():
+    print('------------------------------------------')
+    print('|                                        |')
+    print('|       ---   Gates of Mibaku  ---       |')
+    print('|                                        |')
+    print('------------------------------------------')
+
+
+
+
+
 def render(game,current):
     ''' Displays the current room '''
 
-    print('You are in the ' + game['rooms'][current]['name'])
+    print('You are at ' + game['rooms'][current]['name'])
     print(game['rooms'][current]['desc'])
 
 def getInput():
@@ -32,10 +43,10 @@ def update(response,game,current):
 def main():
 
     game = {}
-    with open('zork.json') as json_file:
+    with open('game.json') as json_file:
         game = json.load(json_file)
 
-    current = 'WHOUS'
+    current = 'START'
 
     quit = False
 
@@ -49,7 +60,7 @@ def main():
             quit = True
 
 
-
+banner()
 
 if __name__ == '__main__':
-	main()
+    main()

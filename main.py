@@ -10,11 +10,19 @@ logger = logging.getLogger(__name__)
 
 
 # Game loop functions
+def banner():
+    print('------------------------------------------')
+    print('|                                        |')
+    print('|       ---   Gates of Mibaku  ---       |')
+    print('|                                        |')
+    print('------------------------------------------')
+
+
 def render(room,moves,points):
     ''' Displays the current room, moves, and points '''
 
     print('\n\nMoves: {moves}, Points: {points}'.format(moves=moves, points=points))
-    print('\n\nYou are in the {name}'.format(name=room['name']))
+    print('\n\nYou are {name}'.format(name=room['name']))
     print(room['desc'])
     if len(room['inventory']):
         print('You see the following items:')
@@ -76,9 +84,8 @@ def main():
 
     # Game name, game file, starting location, winning location(s), losing location(s)
     games = [
-        (   'My Game',          'game.json',    'START',    ['END'],    [])
-        ,(  'Zork I',           'zork.json',    'WHOUS',    ['NIRVA'],  [])
-        ,(  'A Nightmare',      'dream.json',    'START',   ['AWAKE'],  ['END'])
+        (   'Gates of Mibaku',          'game.json',    'START',    ['END'],    [])
+        
     ]
 
     # Ask the player to choose a game
@@ -101,12 +108,13 @@ def main():
 
     with open(gameFile) as json_file:
         game = json.load(json_file)
-
     moves = 0
     points = 0
     inventory = []
 
-    print("\n\n\n\nWelcome to {name}!\n\n".format(name=name))
+    banner()
+
+    print("\n\nWelcome to {name}!\n".format(name=name))
     while True:
 
         render(game['rooms'][current],moves,points)
@@ -129,9 +137,6 @@ def main():
             break
 
 
-
-
-
-
 if __name__ == '__main__':
 	main()
+    
