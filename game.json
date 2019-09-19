@@ -196,7 +196,7 @@
             },
             "ATTACKED": {
               "name": "much deeper in the forest. The visibility is next to none.",
-              "desc": "You begin to hear footsteps somewhere near you. You turn toward the noise, but just as an arrow immediately pierces through your throat.\nYour body crumples to the ground.",
+              "desc": "You begin to hear footsteps somewhere near you.\nYou turn toward the noise, but just as an arrow immediately pierces through your throat.\nYour body crumples to the ground.",
               "exits": [
                 {
                   "verb": "FORWARD",
@@ -207,7 +207,7 @@
               "inventory": []
             },
             "WSHOP": {
-              "name": "in a weapong shop, slightly off the beaten path of the city mainways. There are many interesting characters shopping as well.",
+              "name": "in a weapons shop, slightly off the beaten path of the city mainways.\nThere are many interesting characters shopping as well.",
                 "desc": "The store owner suggests he show you some of his best items.",
                 "exits": [
                   {
