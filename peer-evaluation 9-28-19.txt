@@ -1,0 +1,38 @@
+Name:Dakota Erickson
+Date:9/28/19
+Project:Text Adventure
+Peer's repository:https://github.com/msburks/03-Text-adventure-1
+
+
+
+What is something you learned by reviewing your peer's project?
+
+I didn't allow choosing different games, so that was interesting.
+
+What is something you saw in your peer's project that you would like to apply to your own programming projects?
+
+For a text adventure project, the banner was cool to have and simple to implement. 
+
+What suggestions would you have for your peer to improve his/her code?
+
+Really not much. Nitpicky, but there's a few typos in the .json file. 
+
+What could have been clearer or better commented?
+
+Took me a second to realize that the verbs were "Forward Left Right Back" instead of "North South East West" 
+
+Was there anything in the code that was confusing to you? If so, what?
+
+ Didn't know why there was only one option for a game to play, but understood after reading the readme.
+
+Does the repository contain an appropriate LICENSE?
+
+ Yes
+
+What is something he/she could add to the README.md to make it more descriptive?
+
+ More description on why the project was created or what it is
+
+Pay a compliment to your peer based on the quality of his/her code.
+
+Enjoyed the game overall. Having the banner was a nice touch
